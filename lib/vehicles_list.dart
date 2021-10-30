@@ -52,20 +52,20 @@ class VehicleList extends StatelessWidget {
   }
 
   Future<List<Vehicle>> getAll() async {
-    // http.Response response =
-    //     await http.get(Uri.parse('http://localhost:9090/vehicle'));
-    // if (response.statusCode == 200) {
-    //   List<dynamic> json = jsonDecode(response.body);
-    //   List<Vehicle> vehicles = json.map((e) => Vehicle.fromJson(e)).toList();
-    //   return vehicles;
-    // } else {
-    //   throw Exception('Failed to load vehicles list');
-    // }
+    http.Response response =
+        await http.get(Uri.parse('http://localhost:9090/vehicle'));
+    if (response.statusCode == 200) {
+      List<dynamic> json = jsonDecode(response.body);
+      List<Vehicle> vehicles = json.map((e) => Vehicle.fromJson(e)).toList();
+      return vehicles;
+    } else {
+      throw Exception('Failed to load vehicles list');
+    }
 
-    List<dynamic> json = jsonDecode(
-        '[{"vehicleId":"123","currentOwner":"Praveen","owners":["Praveen","Sabyasachi"],"servicingInfo":{"serviceHistories":[{"serviceCenter":"Mosolf","timeStamp":1635593364992}]}},{"vehicleId":"456","currentOwner":"Praveen","owners":["Praveen","Sabyasachi"],"servicingInfo":{"serviceHistories":[{"serviceCenter":"Mosolf","timeStamp":1635593364992}]}},{"vehicleId":"456","currentOwner":"Praveen","owners":["Praveen","Sabyasachi"],"servicingInfo":{"serviceHistories":[{"serviceCenter":"Mosolf","timeStamp":1635593364992}]}},{"vehicleId":"456","currentOwner":"Praveen","owners":["Praveen","Sabyasachi"],"servicingInfo":{"serviceHistories":[{"serviceCenter":"Mosolf","timeStamp":1635593364992}]}},{"vehicleId":"456","currentOwner":"Praveen","owners":["Praveen","Sabyasachi"],"servicingInfo":{"serviceHistories":[{"serviceCenter":"Mosolf","timeStamp":1635593364992}]}},{"vehicleId":"456","currentOwner":"Praveen","owners":["Praveen","Sabyasachi"],"servicingInfo":{"serviceHistories":[{"serviceCenter":"Mosolf","timeStamp":1635593364992}]}},{"vehicleId":"456","currentOwner":"Praveen","owners":["Praveen","Sabyasachi"],"servicingInfo":{"serviceHistories":[{"serviceCenter":"Mosolf","timeStamp":1635593364992}]}},{"vehicleId":"456","currentOwner":"Praveen","owners":["Praveen","Sabyasachi"],"servicingInfo":{"serviceHistories":[{"serviceCenter":"Mosolf","timeStamp":1635593364992}]}},{"vehicleId":"456","currentOwner":"Praveen","owners":["Praveen","Sabyasachi"],"servicingInfo":{"serviceHistories":[{"serviceCenter":"Mosolf","timeStamp":1635593364992}]}},{"vehicleId":"456","currentOwner":"Praveen","owners":["Praveen","Sabyasachi"],"servicingInfo":{"serviceHistories":[{"serviceCenter":"Mosolf","timeStamp":1635593364992}]}}]');
-    List<Vehicle> vehicles = json.map((e) => Vehicle.fromJson(e)).toList();
-    return vehicles;
+    // List<dynamic> json = jsonDecode(
+    //     '[{"vehicleId":"123","currentOwner":"Praveen","owners":["Praveen","Sabyasachi"],"servicingInfo":{"serviceHistories":[{"serviceCenter":"Mosolf","timeStamp":1635593364992}]}},{"vehicleId":"456","currentOwner":"Praveen","owners":["Praveen","Sabyasachi"],"servicingInfo":{"serviceHistories":[{"serviceCenter":"Mosolf","timeStamp":1635593364992}]}},{"vehicleId":"456","currentOwner":"Praveen","owners":["Praveen","Sabyasachi"],"servicingInfo":{"serviceHistories":[{"serviceCenter":"Mosolf","timeStamp":1635593364992}]}},{"vehicleId":"456","currentOwner":"Praveen","owners":["Praveen","Sabyasachi"],"servicingInfo":{"serviceHistories":[{"serviceCenter":"Mosolf","timeStamp":1635593364992}]}},{"vehicleId":"456","currentOwner":"Praveen","owners":["Praveen","Sabyasachi"],"servicingInfo":{"serviceHistories":[{"serviceCenter":"Mosolf","timeStamp":1635593364992}]}},{"vehicleId":"456","currentOwner":"Praveen","owners":["Praveen","Sabyasachi"],"servicingInfo":{"serviceHistories":[{"serviceCenter":"Mosolf","timeStamp":1635593364992}]}},{"vehicleId":"456","currentOwner":"Praveen","owners":["Praveen","Sabyasachi"],"servicingInfo":{"serviceHistories":[{"serviceCenter":"Mosolf","timeStamp":1635593364992}]}},{"vehicleId":"456","currentOwner":"Praveen","owners":["Praveen","Sabyasachi"],"servicingInfo":{"serviceHistories":[{"serviceCenter":"Mosolf","timeStamp":1635593364992}]}},{"vehicleId":"456","currentOwner":"Praveen","owners":["Praveen","Sabyasachi"],"servicingInfo":{"serviceHistories":[{"serviceCenter":"Mosolf","timeStamp":1635593364992}]}},{"vehicleId":"456","currentOwner":"Praveen","owners":["Praveen","Sabyasachi"],"servicingInfo":{"serviceHistories":[{"serviceCenter":"Mosolf","timeStamp":1635593364992}]}}]');
+    // List<Vehicle> vehicles = json.map((e) => Vehicle.fromJson(e)).toList();
+    // return vehicles;
   }
   String getImage(int index) {
     return "images/" + ((index%8)+1).toString() + ".png";
