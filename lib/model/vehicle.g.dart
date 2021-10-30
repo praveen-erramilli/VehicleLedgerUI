@@ -8,14 +8,17 @@ part of 'vehicle.dart';
 
 Vehicle _$VehicleFromJson(Map<String, dynamic> json) => Vehicle(
       json['vehicleId'] as String,
-      ServicingInfo.fromJson(json['servicingInfo'] as Map<String, dynamic>),
-      json['currentOwner'] as String,
+      json['servicingInfo'] == null
+          ? null
+          : ServicingInfo.fromJson(
+              json['servicingInfo'] as Map<String, dynamic>),
+      json['currentOwner'] as String?,
       (json['owners'] as List<dynamic>).map((e) => e as String).toList(),
     );
 
 Map<String, dynamic> _$VehicleToJson(Vehicle instance) => <String, dynamic>{
       'vehicleId': instance.vehicleId,
-      'servicingInfo': instance.servicingInfo.toJson(),
+      'servicingInfo': instance.servicingInfo?.toJson(),
       'currentOwner': instance.currentOwner,
       'owners': instance.owners,
     };

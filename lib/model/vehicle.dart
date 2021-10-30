@@ -6,8 +6,8 @@ part 'vehicle.g.dart';
 @JsonSerializable(explicitToJson: true)
 class Vehicle {
   String vehicleId;
-  ServicingInfo servicingInfo;
-  String currentOwner;
+  ServicingInfo? servicingInfo;
+  String? currentOwner;
   List<String> owners;
 
   Vehicle(this.vehicleId, this.servicingInfo, this.currentOwner, this.owners);

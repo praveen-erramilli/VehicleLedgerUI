@@ -37,7 +37,7 @@ class VehicleDetails extends StatelessWidget {
               style: const TextStyle(fontWeight: FontWeight.bold),
             ),
             Text(
-              'Current Owner : ${vehicle!.currentOwner}',
+              'Current Owner : ${vehicle!.currentOwner ?? ''}',
               style: const TextStyle(fontWeight: FontWeight.bold),
             ),
             const Padding(padding: EdgeInsets.only(bottom: 20)),
@@ -46,7 +46,7 @@ class VehicleDetails extends StatelessWidget {
               style: TextStyle(fontWeight: FontWeight.bold),
             ),
             const Padding(padding: EdgeInsets.only(bottom: 10)),
-            for (var value in vehicle!.owners)
+            for (var value in vehicle?.owners?? [])
               Text(value),
             const Padding(padding: EdgeInsets.only(bottom: 10)),
             DataTable(columns: const <DataColumn>[
@@ -61,7 +61,7 @@ class VehicleDetails extends StatelessWidget {
                 style: TextStyle(fontWeight: FontWeight.bold),
               )),
             ], rows: <DataRow>[
-              for (var value in vehicle!.servicingInfo.serviceHistories)
+              for (var value in vehicle?.servicingInfo?.serviceHistories??[])
                 DataRow(cells: [
                   DataCell(Text(value.serviceCenter)),
                   DataCell(Text(value.getDateFromTimeStamp())),

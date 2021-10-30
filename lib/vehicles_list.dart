@@ -55,8 +55,10 @@ class VehicleList extends StatelessWidget {
     http.Response response =
         await http.get(Uri.parse('http://localhost:9090/vehicle'));
     if (response.statusCode == 200) {
-      List<dynamic> json = jsonDecode(response.body);
-      List<Vehicle> vehicles = json.map((e) => Vehicle.fromJson(e)).toList();
+      Iterable l = json.decode(response.body);
+      List<Vehicle> vehicles = List<Vehicle>.from(l.map((model){
+        return Vehicle.fromJson(model);
+      }));
       return vehicles;
     } else {
       throw Exception('Failed to load vehicles list');
